@@ -52,6 +52,10 @@ declare interface autofit {
      * @param {number|undefined} level - 缩放等级，用于手动调整缩放程度(可选，默认为 1)
      */
     elRectification: typeof elRectification;
+    /**
+     * 当前缩放比例
+     */
+    scale: number;
 }
 declare const autofit: autofit;
 declare function elRectification(el: string, isKeepRatio?: string | boolean, level?: string | number): void;
