@@ -90,6 +90,7 @@ var autofit = {
         this.isAutofitRunnig && console.log("autofit.js is off");
     },
     elRectification: null,
+    scale: currScale
 };
 function elRectification(el, isKeepRatio, level) {
     var e_1, _a;
@@ -166,6 +167,7 @@ function keepFit(dw, dh, dom, ignore, limit, cssMode) {
     currScale =
         clientWidth / clientHeight < dw / dh ? clientWidth / dw : clientHeight / dh;
     currScale = Math.abs(1 - currScale) > limit ? currScale : 1;
+    autofit.scale = +currScale;
     var height = Math.round(clientHeight / Number(currScale));
     var width = Math.round(clientWidth / Number(currScale));
     dom.style.height = "".concat(height, "px");

@@ -133,7 +133,8 @@ function _typeof(o) {
       }
       this.isAutofitRunnig && console.log("autofit.js is off");
     },
-    elRectification: null
+    elRectification: null,
+    scale: currScale
   };
   function elRectification(el) {
     var isKeepRatio = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : true;
@@ -186,6 +187,7 @@ function _typeof(o) {
     var clientWidth = document.documentElement.clientWidth;
     currScale = clientWidth / clientHeight < dw / dh ? clientWidth / dw : clientHeight / dh;
     currScale = Math.abs(1 - currScale) > limit ? currScale : 1;
+    autofit.scale = +currScale;
     var height = Math.round(clientHeight / Number(currScale));
     var width = Math.round(clientWidth / Number(currScale));
     dom.style.height = "".concat(height, "px");

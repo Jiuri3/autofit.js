@@ -53,6 +53,11 @@ declare interface autofit {
    * @param {number|undefined} level - 缩放等级，用于手动调整缩放程度(可选，默认为 1)
    */
   elRectification: typeof elRectification;
+
+  /**
+   * 当前缩放比例
+   */
+  scale: number
 }
 
 // type Ignore = Array<{ height: number, width: number, fontSize: number, scale: number, el: HTMLElement, dom: HTMLElement }>;
@@ -143,6 +148,7 @@ const autofit: autofit = {
     this.isAutofitRunnig && console.log(`autofit.js is off`);
   },
   elRectification: null!,
+  scale: currScale
 };
 
 function elRectification(el: string, isKeepRatio: string | boolean = true, level: string | number = 1) {
@@ -200,6 +206,7 @@ function keepFit(
   currScale =
     clientWidth / clientHeight < dw / dh ? clientWidth / dw : clientHeight / dh;
   currScale = Math.abs(1 - currScale) > limit ? currScale : 1;
+  autofit.scale = +currScale;
   const height = Math.round(clientHeight / Number(currScale));
   const width = Math.round(clientWidth / Number(currScale));
   dom.style.height = `${height}px`;

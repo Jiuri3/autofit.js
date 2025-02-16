@@ -8,3 +8,7 @@ autofit.init({
   ignore:['div[id*="el-popper-container"]']
   // ignore:['.div','.span']
 });
+window.addEventListener('resize', () => {
+  console.log(autofit.scale);
+});
+
