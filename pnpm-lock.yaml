@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      autofit.js:
-        specifier: file:autofit.js-3.2.5.tgz
-        version: file:autofit.js-3.2.5.tgz
     devDependencies:
       '@rollup/plugin-terser':
         specifier: ^0.4.4
@@ -340,10 +336,6 @@ packages:
   astral-regex@2.0.0:
     resolution: {integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==}
     engines: {node: '>=8'}
-
-  autofit.js@file:autofit.js-3.2.5.tgz:
-    resolution: {integrity: sha512-P8kOMPZKk85+ETN5NLd+/LsMQYA3Z52ckqg2NfrO/Cyw1VAcXX66DzeG/mi/zsAF74L9KALBaG+C7uo1e98sfg==, tarball: file:autofit.js-3.2.5.tgz}
-    version: 3.2.5
 
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
@@ -1235,8 +1227,6 @@ snapshots:
   array-union@2.1.0: {}
 
   astral-regex@2.0.0: {}
-
-  autofit.js@file:autofit.js-3.2.5.tgz: {}
 
   binary-extensions@2.3.0: {}
 
