@@ -11,6 +11,7 @@
     "removeComments": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "downlevelIteration": true,
     "newLine": "LF",
     "allowJs": true,
