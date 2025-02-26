@@ -46,7 +46,7 @@ declare interface Autofit {
   /**
    * 检查autofit.js是否正在运行
    */
-  isAutofitRunnig: boolean;
+  isAutofitRunning: boolean;
   /**
    * @param {string} el - 待处理的元素选择器
    * @param {boolean} isKeepRatio - 是否保持纵横比（可选，默认为true，false时将充满父元素）
@@ -71,7 +71,7 @@ let timer: number = null!;
 let currScale: string | number = 1;
 let isElRectification = false;
 const autofit: Autofit = {
-  isAutofitRunnig: false,
+  isAutofitRunning: false,
   init(options = {}, isShowInitTip = true) {
     if (isShowInitTip) {
       console.log(`autofit.js is running`);
@@ -124,7 +124,7 @@ const autofit: Autofit = {
       }
     };
     resize && window.addEventListener("resize", resizeListener);
-    this.isAutofitRunnig = true;
+    this.isAutofitRunning = true;
     setTimeout(() => {
       dom.style.transition = `${transition}s`;
     });
@@ -136,23 +136,20 @@ const autofit: Autofit = {
       const ignoreStyleDOM = document.querySelector("#ignoreStyle");
       ignoreStyleDOM && ignoreStyleDOM.remove();
       const temp = document.querySelector<HTMLDivElement>(currRenderDom ? currRenderDom as string : el);
-      if (temp) {
-        // @ts-ignore
-        temp.style = "";
-      }
+      temp && (temp.style.cssText = "")
       isElRectification && offelRectification();
     } catch (error) {
       console.error(`autofit: Failed to remove normally`, error);
-      this.isAutofitRunnig = false;
+      this.isAutofitRunning = false;
     }
-    this.isAutofitRunnig && console.log(`autofit.js is off`);
+    this.isAutofitRunning && console.log(`autofit.js is off`);
   },
   elRectification: null!,
   scale: currScale
 };
 
 function elRectification(el: string, isKeepRatio: string | boolean = true, level: string | number = 1) {
-  if (!autofit.isAutofitRunnig) {
+  if (!autofit.isAutofitRunning) {
     console.error("autofit.js：autofit has not been initialized yet");
   }
   offelRectification();
