@@ -1,5 +1,5 @@
 {
-  "include": ["global.d.ts", "src/**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": [],
   "compilerOptions": {
     "strict": true,
@@ -19,10 +19,6 @@
     "preserveSymlinks": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@root/*": ["./*"]
-    },
     "lib": ["ESNext", "DOM"],
     "module": "ES2015",
     "plugins": [
