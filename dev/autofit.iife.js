@@ -4,14 +4,7 @@
 
 "use strict";
 
-//#region dist/autofit.esm.js
-/**
-* @name: autofit.js
-* @author: Larry Zhu
-* @version: 3.2.5
-* @description: autofit.js 是迄今为止最易用的自适应工具
-* @license: MIT
-*/
+//#region src/index.ts
 let currRenderDom = null;
 let currelRectification = "";
 let currelRectificationLevel = "";
@@ -74,23 +67,26 @@ else {
 			isElRectification && offelRectification();
 		} catch (error) {
 			console.error(`autofit: Failed to remove normally`, error);
-			this.isAutofitRunning = false;
 		}
-		this.isAutofitRunning && console.log(`autofit.js is off`);
+		this.isAutofitRunning = false;
+		console.log(`autofit.js is off`);
 	},
 	elRectification: null,
 	scale: currScale
 };
 function elRectification(el, isKeepRatio = true, level = 1) {
-	if (!autofit.isAutofitRunning) console.error("autofit.js：autofit has not been initialized yet");
+	if (!autofit.isAutofitRunning) {
+		console.error("autofit.js：(elRectification): autofit has not been initialized yet");
+		return;
+	}
 	offelRectification();
-	!el && console.error(`autofit.js：bad selector: ${el}`);
+	!el && console.error(`autofit.js：elRectification bad selector: ${el}`);
 	currelRectification = el;
 	currelRectificationLevel = level;
 	currelRectificationIsKeepRatio = isKeepRatio;
 	const currEl = Array.from(document.querySelectorAll(el));
 	if (currEl.length == 0) {
-		console.error("autofit.js：elRectification found no element");
+		console.error(`autofit.js：elRectification found no element by selector: "${el}"`);
 		return;
 	}
 	for (const item of currEl) {

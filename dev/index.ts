@@ -1,5 +1,5 @@
-// import autofit from '../src/index';
-import autofit from "autofit.js";
+import autofit, { elRectification } from '../src/index';
+// import autofit from "autofit.js";
 console.log('autofit::: ', autofit);
 autofit.init({
   // el: 'body',
@@ -9,6 +9,7 @@ autofit.init({
   ignore:['div[id*="el-popper-container"]']
   // ignore:['.div','.span']
 });
+// elRectification('.div', true, 1);
 window.addEventListener('resize', () => {
   console.log(autofit.scale);
 });
