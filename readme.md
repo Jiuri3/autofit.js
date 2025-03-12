@@ -1,7 +1,7 @@
 
 <p align="center">
-  <a target="_blank" href="https://auto-plugin.github.io/index/autofit.js/">
-  <img alt="autofit" src="https://auto-plugin.github.io/index/autofit.js/logo.png" width="300">
+  <a target="_blank" href="https://auto-plugin.github.io/autofit.js/">
+  <img alt="autofit" src="./autofit.png" width="300">
   </a>
 </p>
 
