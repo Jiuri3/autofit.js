@@ -23,7 +23,7 @@ export default defineConfig({
       port: 30001,           // 服务器端口
     }) as Plugin,
     livereload({
-      watch: 'dev',        // 监听文件变化
+      watch: ['dev', 'src'],        // 监听文件变化
     }) as Plugin,
   ],
 })

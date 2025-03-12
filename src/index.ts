@@ -140,9 +140,9 @@ const autofit: Autofit = {
       isElRectification && offelRectification();
     } catch (error) {
       console.error(`autofit: Failed to remove normally`, error);
-      this.isAutofitRunning = false;
     }
-    this.isAutofitRunning && console.log(`autofit.js is off`);
+    this.isAutofitRunning = false;
+    console.log(`autofit.js is off`);
   },
   elRectification: null!,
   scale: currScale
@@ -150,16 +150,17 @@ const autofit: Autofit = {
 
 function elRectification(el: string, isKeepRatio: string | boolean = true, level: string | number = 1) {
   if (!autofit.isAutofitRunning) {
-    console.error("autofit.js：autofit has not been initialized yet");
+    console.error("autofit.js：(elRectification): autofit has not been initialized yet");
+    return;
   }
   offelRectification();
-  !el && console.error(`autofit.js：bad selector: ${el}`);
+  !el && console.error(`autofit.js：elRectification bad selector: ${el}`);
   currelRectification = el;
   currelRectificationLevel = level;
   currelRectificationIsKeepRatio = isKeepRatio;
   const currEl = Array.from(document.querySelectorAll<HTMLElement & { originalWidth: number, originalHeight: number }>(el));
   if (currEl.length == 0) {
-    console.error("autofit.js：elRectification found no element");
+    console.error(`autofit.js：elRectification found no element by selector: "${el}"`);
     return;
   }
   for (const item of currEl) {
