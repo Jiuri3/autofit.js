@@ -132,7 +132,8 @@ const autofit: Autofit = {
   off(el = "body") {
     try {
       window.removeEventListener("resize", resizeListener);
-      document.querySelector("#autofit-style")?.remove();
+      const autofitStyle = document.querySelector("#autofit-style");
+      autofitStyle && autofitStyle.remove();
       const ignoreStyleDOM = document.querySelector("#ignoreStyle");
       ignoreStyleDOM && ignoreStyleDOM.remove();
       const temp = document.querySelector<HTMLDivElement>(currRenderDom ? currRenderDom as string : el);
